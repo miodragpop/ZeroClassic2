@@ -366,13 +366,18 @@ public:
         nEquihashN = N;
         nEquihashK = K;
 
+	/*
+		./genesis.py -c regtest -z 'ZERO is born. BTC #453749 - 00000000000000000252b2fb7e477185e56228a4f5c31ff9e8b5604b88adbbbe' -C ZERO -t 1540101608 -b 0x200f0f0f -E 0x0200a1fa0 -s '/full/path/to/eq485 -p ZERO_PoW' -T 4 -r 50 -v
+	*/
+
         genesis = CreateGenesisBlock(
-            1487500000,
-            uint256S("0x0000000000000000000000000000000000000000000000000000000000000009"),
-            ParseHex("05ffd6ad016271ade20cfce093959c3addb2079629f9f123c52ef920caa316531af5af3f"),
+            1540101608,
+            uint256S("0x0000000000000000000000000000000000000000000000000000000000000001"),
+            ParseHex("01a941f2627bc5b3c214d2909224d59ed17702de573ca8dcfa7f561692aa1d233436b1a5"),
             0x200f0f0f, 4, 0);
+		
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("1f98be6bf87d3aaa4e34293af14d6ef001ec4de45d2011333d745d96769b5397"));
+		assert(consensus.hashGenesisBlock == uint256S("003c613a211623e3be02c4758c3a92872594c5e1bc252d8b142f788f21139cce"));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();  //! Regtest mode doesn't have any DNS seeds.
