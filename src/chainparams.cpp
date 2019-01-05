@@ -256,7 +256,7 @@ public:
         pchMessageStart[2] = 0x53; // R+1
         pchMessageStart[3] = 0x44; // C+1
         vAlertPubKey = ParseHex("73B0");
-        nDefaultPort = 23812;
+        nDefaultPort = 23802;
         nPruneAfterHeight = 1000;
         const size_t N = 192, K = 7;
         BOOST_STATIC_ASSERT(equihash_parameters_acceptable(N, K));
@@ -359,7 +359,7 @@ public:
         pchMessageStart[1] = 0xe8;
         pchMessageStart[2] = 0x3f;
         pchMessageStart[3] = 0x5f;
-        nDefaultPort = 23802;
+        nDefaultPort = 23803;
         nPruneAfterHeight = 1000;
         const size_t N = 48, K = 5;
         BOOST_STATIC_ASSERT(equihash_parameters_acceptable(N, K));
