@@ -4137,7 +4137,8 @@ UniValue z_mergetoaddress(const UniValue& params, bool fHelp)
         return NullUniValue;
 
     string enableArg = "zmergetoaddress";
-    auto fEnableMergeToAddress = fExperimentalMode && GetBoolArg("-" + enableArg, false);
+    // auto fEnableMergeToAddress = fExperimentalMode && GetBoolArg("-" + enableArg, false);
+    bool fEnableMergeToAddress = true; // z_mergetoaddress unleashed
     std::string strDisabledMsg = "";
     if (!fEnableMergeToAddress) {
         strDisabledMsg = experimentalDisabledHelpMsg("z_mergetoaddress", enableArg);
