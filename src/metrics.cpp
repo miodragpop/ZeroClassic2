@@ -477,7 +477,7 @@ void ThreadShowMetricsScreen()
 
         // Thank you text
         //std::cout << _("Thank you for running a ZeroClassic node!") << std::endl;
-        std::cout << _("Thank you for running a [1mZero Classic[0m node ") << FormatSubVersion(CLIENT_NAME, CLIENT_VERSION, std::vector<std::string>()) << std::endl;
+        std::cout << _("Thank you for running a \e[1mZero Classic\e[0m node \e[1m") << FormatSubVersion(CLIENT_NAME, CLIENT_VERSION, std::vector<std::string>()) << _("\e[0m") <<std::endl;
         std::cout << _("You're helping to strengthen the network and contributing to a social good :)") << std::endl;
 
         // Privacy notice text
