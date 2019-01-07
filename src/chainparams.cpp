@@ -174,29 +174,7 @@ public:
         fMineBlocksOnDemand = false;
         fTestnetToBeDeprecatedFieldRPC = false;
 
-        /*
-        checkpointData = (CCheckpointData) {
-            boost::assign::map_list_of
-            (0, consensus.hashGenesisBlock)
-            (2500, uint256S("0x00000006dc968f600be11a86cbfbf7feb61c7577f45caced2e82b6d261d19744"))
-            (15000, uint256S("0x00000000b6bc56656812a5b8dcad69d6ad4446dec23b5ec456c18641fb5381ba"))
-            (67500, uint256S("0x000000006b366d2c1649a6ebb4787ac2b39c422f451880bc922e3a6fbd723616"))
-            (100000, uint256S("0x000000001c5c82cd6baccfc0879e3830fd50d5ede17fa2c37a9a253c610eb285"))
-            (133337, uint256S("0x0000000002776ccfaf06cc19857accf3e20c01965282f916b8a886e3e4a05be9"))
-            (180000, uint256S("0x000000001205b742eac4a1b3959635bdf8aeada078d6a996df89740f7b54351d"))
-            (222222, uint256S("0x000000000cafb9e56445a6cabc8057b57ee6fcc709e7adbfa195e5c7fac61343"))
-            (270000, uint256S("0x00000000025c1cfa0258e33ab050aaa9338a3d4aaa3eb41defefc887779a9729"))
-            (304600, uint256S("0x00000000028324e022a45014c4a4dc51e95d41e6bceb6ad554c5b65d5cea3ea5"))
-            (410100, uint256S("0x0000000002c565958f783a24a4ac17cde898ff525e75ed9baf66861b0b9fcada")),
-            1539405939,     // * UNIX timestamp of last checkpoint block
-            3954156,        // * total number of transactions between genesis and last checkpoint
-                            //   (the tx=... number in the SetBestChain debug.log lines)
-            5553            // * estimated number of transactions per day after checkpoint
-                            //   total number of tx / (checkpoint block height / (24 * 24))
-        };
-		*/
-
-		checkpointData = (CCheckpointData) {
+   		checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
             (0, consensus.hashGenesisBlock)
             (412299, uint256S("0x000000ce1fbc21951da6f9ee130d7f251eff24ca6f3eb986e8a959a6456c7943"))
@@ -234,7 +212,7 @@ public:
         consensus.nPowMaxAdjustDown = 30; // 30% adjustment down
         consensus.nPowMaxAdjustUp = 10; // 10% adjustment up
         consensus.nPowTargetSpacing = 2 * 60;
-        //consensus.nPowAllowMinDifficultyBlocksAfterHeight = 445000;
+        //consensus.nPowAllowMinDifficultyBlocksAfterHeight = 3000;
         consensus.nPowAllowMinDifficultyBlocksAfterHeight = boost::none;
         consensus.vUpgrades[Consensus::BASE_SPROUT].nProtocolVersion = 170002;
         consensus.vUpgrades[Consensus::BASE_SPROUT].nActivationHeight =
@@ -248,7 +226,6 @@ public:
         consensus.vUpgrades[Consensus::UPGRADE_SAPLING].nActivationHeight = 1880;
 
         // The best chain should have at least this much work.
-        //consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000000001d0c4d9cd");
 		consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
 		
         pchMessageStart[0] = 0x5B; // Z+1
@@ -359,6 +336,7 @@ public:
         pchMessageStart[1] = 0xe8;
         pchMessageStart[2] = 0x3f;
         pchMessageStart[3] = 0x5f;
+        vAlertPubKey = ParseHex("73B0");
         nDefaultPort = 23803;
         nPruneAfterHeight = 1000;
         const size_t N = 48, K = 5;
