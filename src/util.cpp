@@ -495,13 +495,13 @@ static boost::filesystem::path ZC_GetBaseParamsDir()
     // Copied from GetDefaultDataDir and adapter for zero classic params.
 
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\ZeroParams
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\ZeroParams
-    // Mac: ~/Library/Application Support/ZeroParams
-    // Unix: ~/.zero-params
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\ZcashParams
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\ZcashParams
+    // Mac: ~/Library/Application Support/ZcashParams
+    // Unix: ~/.zcash-params
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "ZeroParams";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "ZcashParams";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -513,10 +513,10 @@ static boost::filesystem::path ZC_GetBaseParamsDir()
     // Mac
     pathRet /= "Library/Application Support";
     TryCreateDirectory(pathRet);
-    return pathRet / "ZeroParams";
+    return pathRet / "ZcashParams";
 #else
     // Unix
-    return pathRet / ".zero-params";
+    return pathRet / ".zcash-params";
 #endif
 #endif
 }
